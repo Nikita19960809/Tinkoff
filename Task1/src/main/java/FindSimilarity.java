@@ -5,7 +5,7 @@ public class FindSimilarity {
     private HashMap<String, Integer> musical_groups;
     private ArrayList<Group> people;
     private HashMap<String, Double> results = new HashMap<>();
-    private static final int COEFF = 10000000;
+    private static final int COEFF = 1000000;
 
     /**
      * Constructor of class
@@ -62,8 +62,7 @@ public class FindSimilarity {
             }
 
         }
-
-        return (double)COEFF*countSim / (musical_groups.get(performer) + N_A - countSim);
+        return (double)COEFF*countSim / (musical_groups.get(performer) + COEFF*(N_A - countSim));
     }
 
     /** Method finds overall similarity
@@ -83,9 +82,6 @@ public class FindSimilarity {
               vector.add(findListeners((String) entry.getKey(), A));
         }
 
-        for (double l: vector) {
-            System.out.println(l);
-        }
 
         double median = findMedian(vector);
         results.put(A.toString(),median);

@@ -48,7 +48,7 @@ public class FindSimilarityTest {
 
         HashMap<String, Integer> map = f.getMusical_groups();
 
-        Assert.assertEquals(100,f.findTwoGroupsSimilarity(groupA,groupB),0.01);
+        Assert.assertEquals(0.91,f.findTwoGroupsSimilarity(groupA,groupB),0.01);
 
 
 
